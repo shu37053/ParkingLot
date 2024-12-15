@@ -1,0 +1,66 @@
+{
+  "parking_positions": [
+    {
+      "positionName" : "A1",
+      "type" : "MOTORCYCLE",
+      "totalParkingSpots" : 4
+    },
+    {
+      "positionName" : "A2",
+      "type" : "MOTORCYCLE",
+      "totalParkingSpots" : 4
+    },
+    {
+      "positionName" : "A3",
+      "type" : "MOTORCYCLE",
+      "totalParkingSpots" : 4
+    },
+    {
+      "positionName" : "B1",
+      "type" : "CAR",
+      "totalParkingSpots" : 2
+    },
+    {
+      "positionName" : "B2",
+      "type" : "CAR",
+      "totalParkingSpots" : 2
+    },
+    {
+      "positionName" : "B3",
+      "type" : "CAR",
+      "totalParkingSpots" : 4
+    },
+    {
+      "positionName" : "C1",
+      "type" : "VAN",
+      "totalParkingSpots" : 1
+    },
+    {
+      "positionName" : "C2",
+      "type" : "VAN",
+      "totalParkingSpots" : 2
+    },
+    {
+      "positionName" : "D1",
+      "type" : "TRUCK",
+      "totalParkingSpots" : 1
+    },
+    {
+      "positionName" : "D2",
+      "type" : "TRUCK",
+      "totalParkingSpots" : 1
+    }
+  ],
+  "entries" : [
+    {
+      "id" : "Gate1"
+    },
+    {
+      "id" : "Gate2"
+    }
+  ],
+  "entry_position_map" : {
+    "Gate1" : ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "D1", "D2" ],
+    "Gate2" : ["A3", "A2", "A1", "B3", "B2", "B2", "C2", "C1", "D1", "D2" ]
+  }
+}
