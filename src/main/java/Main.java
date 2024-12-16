@@ -15,7 +15,7 @@ public class Main {
             // Read the JSON file into a byte array
             byte[] jsonData = Files.readAllBytes(Paths.get(ClassLoader.getSystemResource(filePath).toURI()));
             AppConfig appConfig = processConfig(jsonData);
-            int a = 0;
+            ParkingManager manager = new ParkingManager(appConfig);
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }

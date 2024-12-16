@@ -1,12 +1,13 @@
 package parkings;
 
-import lombok.Builder;
 import vehicle.VehicleType;
 
 public abstract class ParkingSpot {
     private final VehicleType type;
+    private final String id;
 
-    public ParkingSpot(VehicleType type) {
+    public ParkingSpot(final VehicleType type, String id) {
         this.type = type;
+        this.id = id;
     }
 }

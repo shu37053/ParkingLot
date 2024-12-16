@@ -5,7 +5,7 @@ import vehicle.VehicleType;
 
 public class VanParking extends ParkingSpot {
     @Builder
-    public VanParking(VehicleType type) {
-        super(type);
+    public VanParking(final VehicleType type, final String id) {
+        super(type, id);
     }
 }

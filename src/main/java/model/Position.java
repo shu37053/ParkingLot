@@ -7,7 +7,8 @@ import lombok.Data;
 import parkings.ParkingSpot;
 import vehicle.VehicleType;
 
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 @Data
 public class Position {
@@ -15,7 +16,7 @@ public class Position {
     private final String positionName;
     @JsonProperty("type")
     private final VehicleType type;
-    private List<ParkingSpot> parkingSpots;
+    private Queue<ParkingSpot> parkingSpots;
     private int totalParkingSpots;
     private int emptyParkingSpots;
 
@@ -23,10 +24,11 @@ public class Position {
     public Position(@JsonProperty("positionName") String positionName, @JsonProperty("type") VehicleType type) {
         this.type = type;
         this.positionName = positionName;
+        this.parkingSpots = new LinkedList<>();
     }
 
     @Builder
-    public Position(String positionName, VehicleType type, List<ParkingSpot> parkingSpots) {
+    public Position(String positionName, VehicleType type, Queue<ParkingSpot> parkingSpots) {
         this.positionName = positionName;
         this.type = type;
         this.parkingSpots = parkingSpots;
