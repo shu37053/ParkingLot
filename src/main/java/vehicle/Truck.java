@@ -1,10 +1,11 @@
 package vehicle;
 
 import lombok.Builder;
+import model.Ticket;
 
 public class Truck extends Vehicle {
     @Builder
-    public Truck(VehicleType type, String vinNumber) {
-        super(type, vinNumber);
+    public Truck(String vinNumber, Ticket ticket) {
+        super(VehicleType.TRUCK, vinNumber, ticket);
     }
 }

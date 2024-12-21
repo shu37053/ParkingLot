@@ -1,17 +1,17 @@
 package vehicle;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import lombok.Builder;
 import lombok.Data;
+import model.Ticket;
 
 @Data
 public abstract class Vehicle {
     private final VehicleType type;
     private String vinNumber;
+    private Ticket ticket;
 
-    Vehicle(final VehicleType type, final String vinNumber) {
+    Vehicle(final VehicleType type, final String vinNumber, Ticket ticket) {
         this.type = type;
         this.vinNumber = vinNumber;
+        this.ticket = ticket;
     }
 }
