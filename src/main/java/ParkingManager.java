@@ -2,7 +2,11 @@ import exceptions.InvalidConfigException;
 import model.AppConfig;
 import model.Entry;
 import model.Position;
+import model.Ticket;
 import parkings.*;
+import spotassignment.BalancedAssignmentStrategy;
+import spotassignment.SpotAssignmentStrategy;
+import vehicle.Vehicle;
 import vehicle.VehicleType;
 
 import java.util.*;
@@ -11,6 +15,7 @@ public class ParkingManager {
     private final AppConfig appConfig;
     private final Map<String, Position> positionMap;
     private final Map<String, Entry> entryMap;
+    private final SpotAssignmentStrategy assignmentStrategy;
 
 
     public ParkingManager(AppConfig appConfig) {
@@ -22,6 +27,7 @@ public class ParkingManager {
         } catch (InvalidConfigException e) {
             throw new RuntimeException(e);
         }
+        assignmentStrategy = new BalancedAssignmentStrategy(appConfig, positionMap);
     }
 
     private void processPosition(List<Position> positionList) throws InvalidConfigException {

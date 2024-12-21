@@ -1,5 +1,6 @@
 package spotassignment;
 
+import exceptions.NoAvailableParking;
 import model.AppConfig;
 import model.Entry;
 import model.Position;
@@ -18,5 +19,5 @@ public abstract class SpotAssignmentStrategy {
         this.positionMap = positionMap;
     }
 
-    public abstract Ticket getParkingSpot(final VehicleType type, final Entry entry);
+    public abstract Ticket getParkingSpot(final VehicleType type, final Entry entry) throws NoAvailableParking;
 }

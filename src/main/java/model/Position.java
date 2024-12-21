@@ -7,7 +7,9 @@ import lombok.Data;
 import parkings.ParkingSpot;
 import vehicle.VehicleType;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 
 @Data
@@ -17,14 +19,16 @@ public class Position {
     @JsonProperty("type")
     private final VehicleType type;
     private Queue<ParkingSpot> parkingSpots;
+    private final Map<String, ParkingSpot> occupiedSpots;
     private int totalParkingSpots;
-    private int emptyParkingSpots;
+    private int availableParkingSpots;
 
     @JsonCreator
     public Position(@JsonProperty("positionName") String positionName, @JsonProperty("type") VehicleType type) {
         this.type = type;
         this.positionName = positionName;
         this.parkingSpots = new LinkedList<>();
+        this.occupiedSpots = new HashMap<>();
     }
 
     @Builder
@@ -33,6 +37,11 @@ public class Position {
         this.type = type;
         this.parkingSpots = parkingSpots;
         totalParkingSpots = parkingSpots.size();
-        emptyParkingSpots = 0;
+        availableParkingSpots = 0;
+        this.occupiedSpots = new HashMap<>();
+    }
+
+    public boolean hasParkingSpots() {
+        return totalParkingSpots != availableParkingSpots;
     }
 }
